@@ -100,7 +100,7 @@ Flipper *Flipper_createMemory( unsigned int nV, unsigned int nC )
 {
 	Flipper *mem;
     int memory_size = Flipper_calculateMemorySize(nV, nC);
-    void *raw_memory_ptr = malloc(memory_size);
+    void *raw_memory_ptr = (void*)malloc(memory_size);
     char *ptr_end =  Flipper_assignMemory(nV, nC, &mem, raw_memory_ptr);
     assert((char*)raw_memory_ptr + memory_size >= ptr_end); (void) ptr_end;
     return mem;

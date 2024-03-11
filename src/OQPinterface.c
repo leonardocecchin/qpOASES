@@ -95,7 +95,7 @@ OQPbenchmark_ws *OQPbenchmark_ws_createMemory( unsigned int nV, unsigned int nC 
 {
 	OQPbenchmark_ws *mem;
     int memory_size = OQPbenchmark_ws_calculateMemorySize(nV, nC);
-    void *raw_memory_ptr = malloc(memory_size);
+    void *raw_memory_ptr = (void*)malloc(memory_size);
     char *ptr_end =  OQPbenchmark_ws_assignMemory(nV, nC, &mem, raw_memory_ptr);
     assert((char*)raw_memory_ptr + memory_size >= ptr_end); (void) ptr_end;
     return mem;
@@ -152,7 +152,7 @@ OQPbenchmarkB_ws *OQPbenchmarkB_ws_createMemory( unsigned int nV )
 {
 	OQPbenchmarkB_ws *mem;
     int memory_size = OQPbenchmarkB_ws_calculateMemorySize(nV);
-    void *raw_memory_ptr = malloc(memory_size);
+    void *raw_memory_ptr = (void*)malloc(memory_size);
     char *ptr_end =  OQPbenchmarkB_ws_assignMemory(nV, &mem, raw_memory_ptr);
     assert((char*)raw_memory_ptr + memory_size >= ptr_end); (void) ptr_end;
     return mem;
@@ -235,7 +235,7 @@ OQPinterface_ws *OQPinterface_ws_createMemory( unsigned int nV, unsigned int nC,
 {
 	OQPinterface_ws *mem;
     int memory_size = OQPinterface_ws_calculateMemorySize(nV, nC, nQP);
-    void *raw_memory_ptr = malloc(memory_size);
+    void *raw_memory_ptr = (void*)malloc(memory_size);
     char *ptr_end =  OQPinterface_ws_assignMemory(nV, nC, nQP, &mem, raw_memory_ptr);
     assert((char*)raw_memory_ptr + memory_size >= ptr_end); (void) ptr_end;
     return mem;

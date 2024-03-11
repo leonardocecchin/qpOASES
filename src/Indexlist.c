@@ -87,7 +87,7 @@ Indexlist *Indexlist_createMemory( int n )
 {
 	Indexlist *mem;
     int memory_size = Indexlist_calculateMemorySize(n);
-    void *raw_memory_ptr = malloc(memory_size);
+    void *raw_memory_ptr = (void*)malloc(memory_size);
     char *ptr_end =  Indexlist_assignMemory(n, &mem, raw_memory_ptr);
     assert((char*)raw_memory_ptr + memory_size >= ptr_end); (void) ptr_end;
     return mem;

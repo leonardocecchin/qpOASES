@@ -81,7 +81,7 @@ DenseMatrix *DenseMatrix_createMemory( int m, int n )
 {
 	DenseMatrix *mem;
     int memory_size = DenseMatrix_calculateMemorySize(m, n);
-    void *raw_memory_ptr = malloc(memory_size);
+    void *raw_memory_ptr = (void*)malloc(memory_size);
     char *ptr_end =  DenseMatrix_assignMemory(m, n, &mem, raw_memory_ptr);
     assert((char*)raw_memory_ptr + memory_size >= ptr_end); (void) ptr_end;
     return mem;
