@@ -199,7 +199,7 @@ QProblem_ws *QProblem_ws_createMemory( unsigned int nV, unsigned int nC )
 {
 	QProblem_ws *mem;
     int memory_size = QProblem_ws_calculateMemorySize(nV, nC);
-    void *raw_memory_ptr = malloc(memory_size);
+    void *raw_memory_ptr = (void*)malloc(memory_size);
     char *ptr_end =  QProblem_ws_assignMemory(nV, nC, &mem, raw_memory_ptr);
     assert((char*)raw_memory_ptr + memory_size >= ptr_end); (void) ptr_end;
     return mem;
@@ -338,7 +338,7 @@ QProblem *QProblem_createMemory( unsigned int nV, unsigned int nC )
 {
 	QProblem *mem;
     int memory_size = QProblem_calculateMemorySize(nV, nC);
-    void *raw_memory_ptr = malloc(memory_size);
+    void *raw_memory_ptr = (void*)malloc(memory_size);
     char *ptr_end =  QProblem_assignMemory(nV, nC, &mem, raw_memory_ptr);
     assert((char*)raw_memory_ptr + memory_size >= ptr_end); (void) ptr_end;
     return mem;
